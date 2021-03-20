@@ -8,7 +8,7 @@ module.exports = function (passport) {
       {
         clientID: process.env.CLIENT_ID,
         clientSecret: process.env.CLIENT_SECRET,
-        callbackURL: "/auth/google/callback",
+        callbackURL: "https://holdmylinks.herokuapp.com/auth/google/callback",
       },
       async (accessToken, refreshToken, profile, done) => {
         // console.log(profile)
