@@ -1,0 +1,31 @@
+{
+  "name": "linkster",
+  "version": "1.0.0",
+  "description": "Store Your Links - Safe and sound",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "cross-env NODE_ENV=development nodemon index"
+  },
+  "keywords": [
+    "bitlyclone",
+    "nodejs",
+    "expressjs"
+  ],
+  "author": "Sarvesh Hiwase",
+  "license": "ISC",
+  "dependencies": {
+    "connect-mongo": "^3.2.0",
+    "cross-env": "^7.0.3",
+    "dotenv": "^8.2.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "meta-fetcher": "^2.0.0",
+    "method-override": "^3.0.0",
+    "moment-timezone": "^0.5.33",
+    "mongoose": "^5.11.17",
+    "passport": "^0.4.1",
+    "passport-google-oauth20": "^2.0.0"
+  }
+}

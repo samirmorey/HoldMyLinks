@@ -1,0 +1,61 @@
+<%- include('Partials/header.ejs') %>
+  
+  <form action="/links/add" method="POST">
+      <input type="text" name="categoryName" placeholder="Enter category" required />
+      <input type="text" name="link" placeholder="Enter link" required />
+      <input type="text" name="description" placeholder="Enter your description"  required />
+                    <button type="submit" class="btn btn-float" ><i style="color: red" class="fas fa-plus fa-small" style="margin: 0;"></i></button>
+                </form>
+
+<% if(category.length !== 0) { %> 
+	<ul class="collapsible">
+  <% category.forEach(function(cat){ %>
+  <li>
+    <div class="collapsible-header" style="justify-content: space-between; align-items: center;">
+
+      <div class="sad">
+      <i class="material-icons" >keyboard_arrow_down</i>
+    <%= cat.categoryName %> 
+    </div>
+   
+    <div class="sad">
+      <a href="/links/add/<%= cat._id %>">  <i style="color: lightcoral;" class="fas fa-plus fa-small" style="margin: 0;"></i> </a>
+   <a href="/links/update/<%= cat._id %>">  <i style="color: blue;" class="fas fa-edit fa-small" style="margin: 0;"></i> </a>
+                
+    <form action="/links/delete/<%= cat._id %>" method="POST" id="delete-form">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <button type="submit" style="background: transparent; border: none;
+                      outline: none;
+                      cursor: pointer;
+                    " ><i style="color: red" class="fas fa-trash fa-small" style="margin: 0;"></i></button>
+                </form>
+             </div>
+               
+              </div>
+      <div class="collapsible-body"><span><% cat.links.forEach(function(link){ %>
+        <div class="sad"> 
+      	<span> <%= link.description %></span>	
+        <div class="sad">
+      	<a target="_blank" href="<%= link.link %>"><i class="material-icons" style="margin-right: 20px;">link</i></a>
+        <a href="/links/updatelink/<%= cat._id %>/<%= link._id %>" style="margin-right: 20px;">  <i style="color: blue;" class="fas fa-edit fa-small" ></i> </a>
+        <form action="/links/deletelink/<%= cat._id %>/<%= link._id %>" method="POST" id="delete-form">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <button type="submit" style="background: transparent; border: none;
+                      outline: none;
+                      cursor: pointer;
+                    " ><i style="color: red" class="fas fa-trash fa-small" style="margin: 0;"></i></button>
+                </form>
+        </div>
+      	</div>
+     <% }); %></span></div></li>
+  <% }); %>
+</ul> 
+<% } else{ %>
+    <p>No links to display</p>
+ <% } %> 
+	 
+        
+        <%- include('Partials/footer.ejs') %>
+	
+</body>
+</html>

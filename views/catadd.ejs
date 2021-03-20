@@ -1,0 +1,11 @@
+<%- include('Partials/header.ejs') %>
+<h1>Adding a Link in <%= name %> Category </h1>
+<form action="/links/add/<%= id %>" method="POST">
+	  <input type="hidden"  name="_method" value="PATCH">
+      <input type="text" placeholder="Add a description to Your Link" name="description" required/>
+      <input type="text" placeholder="Add your Link" name="link" required/>
+	  <button type="submit" class="btn btn-float" ><i style="color: red" class="fas fa-plus fa-small" style="margin: 0;"></i></button>
+</form>
+
+
+<%- include('Partials/footer.ejs') %>

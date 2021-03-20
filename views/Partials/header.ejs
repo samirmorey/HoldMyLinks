@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Linkster</title>
+	 <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css' />
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+            
+</head>
+<style type="text/css">
+  @import url("https://fonts.googleapis.com/css2?family=Inter:wght@900&display=swap");
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", sans-serif;
+}
+*::placeholder{
+  color: black;
+  font-weight: 600;
+  font-family: "Inter", sans-serif;
+}
+  
+  .sad{
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+  }
+  .flex-center{
+    display: flex;
+    justify-content: center;
+  }
+
+</style>
+<body>
+  <nav class="grey darken-3">
+    <div class="nav-wrapper container">
+        <a href="#!" class="brand-logo center">HoldMyLinks</a>
+        <a href="#" data-target="slide-out" class="sidenav-trigger show-on-large"><i style="color: white;" class="material-icons">menu</i></a> 
+        <a href="/dashboard" class="show-on-large"><i style="color: white;" class="material-icons">home</i></a> 
+    </div>
+</nav>
+  <!-- <nav class="red"> 
+    <a href="#" data-target="slide-out" class="sidenav-trigger"><i style="color: white;" class="material-icons">person_outline</i></a>
+  </nav> -->
+
+  <ul id="slide-out" class="sidenav">
+    <li><div class="user-view">
+      <div class="background">
+        <img  src="https://materializecss.com/images/office.jpg">
+      </div>
+      <a href="#user"><img class="circle" src="<%= userprof.image %> "></a>
+      <a href="#name"><span class="white-text name"><%= userprof.displayName %> </span></a>
+      <a href="#email"><span class="white-text email"><%= userprof.email %></span></a>
+    </div></li>
+    <li><a href="/"><i class="material-icons">home</i>Home</a></li>
+    <li><a href="#!"><i class="material-icons">cake</i><%= helper(userprof.createdAt) %></a></li>
+    <!-- <li><a href="#!">Second Link</a></li> -->
+    <li><div class="divider"></div></li>
+    <!-- <li><a class="subheader">Subheader</a></li> -->
+    <li><a class="waves-effect" href="/auth/logout"><i class="material-icons">logout</i>Logout</a></li>
+  </ul>
